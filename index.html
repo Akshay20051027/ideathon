@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDEATHON 2025 - Vignan University</title>
+    <meta name="description" content="Green India – Sustainability Through Software & Tech">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+            z-index: 1000;
+            padding: 0.75rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            z-index: 1001;
+        }
+
+        .logo {
+            height: 65px;
+            width: 100px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-left: 0.5rem;
+        }
+
+        /* Navigation */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #22c55e;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(34, 197, 94, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+            background: none;
+            border: none;
+        }
+
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background: #374151;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+            background: #22c55e;
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+            background: #22c55e;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: right 0.3s ease;
+            z-index: 1000;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-nav-links li {
+            margin: 1.5rem 0;
+        }
+
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .mobile-nav-links a:hover {
+            color: #22c55e;
+            transform: scale(1.1);
+        }
+
+        .mobile-cta {
+            margin-top: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('src/assets/hero-sustainability.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #374151;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 3rem;
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card-icon {
+            width: 24px;
+            height: 24px;
+            margin: 0 auto 0.5rem;
+            color: #22c55e;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #374151;
+            padding: 1rem 2rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: #22c55e;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-description {
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #22c55e, #16a34a);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 80px;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 60px;
+            height: 60px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-date {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #d1d5db;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-container {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .header-content {
+                padding: 0 1.5rem;
+            }
+
+            .brand-text {
+                font-size: 1rem;
+            }
+
+            .logo {
+                height: 35px;
+                width: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.25rem;
+            }
+
+            .info-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .info-card {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Registration Form */
+        .registration-form {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            padding: 3rem;
+            border-radius: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mt-8 { margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="src/assets/young-innovators-logo.png" alt="Young Innovators Club" class="logo">
+                <img src="src/assets/vignan-university-logo.png" alt="Vignan University" class="logo">
+                <img src="src/assets/vignan-incubator-logo.png" alt="Vignan Incubator" class="logo">
+                <span class="brand-text">IDEATHON 2025</span>
+            </div>
+            
+            <div class="nav-container">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#timeline">Timeline</a></li>
+                        <li><a href="#focus-areas">Focus Areas</a></li>
+                        <li><a href="#rewards">Rewards</a></li>
+                        <li><a href="#registration">Register</a></li>
+                    </ul>
+                </nav>
+                <a href="#registration" class="cta-button">Register Now</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-links">
+                <li><a href="#overview" onclick="closeMobileMenu()">Overview</a></li>
+                <li><a href="#timeline" onclick="closeMobileMenu()">Timeline</a></li>
+                <li><a href="#focus-areas" onclick="closeMobileMenu()">Focus Areas</a></li>
+                <li><a href="#rewards" onclick="closeMobileMenu()">Rewards</a></li>
+                <li><a href="#registration" onclick="closeMobileMenu()">Register</a></li>
+            </ul>
+            <div class="mobile-cta">
+                <a href="#registration" class="cta-button" onclick="closeMobileMenu()">Register Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="event-badge">
+                <div class="pulse-dot"></div>
+                <span>CSE Department • Vignan's University</span>
+            </div>
+            
+            <h1 class="main-title">
+                <span class="gradient-text">IDEATHON</span><br>
+                <span class="gradient-text">2025</span>
+            </h1>
+            
+            <p class="subtitle">Green India – Sustainability Through Software & Tech</p>
+            <p class="description">Join us for an innovative journey where your ideas can sow the seeds of a cleaner, greener tomorrow!</p>
+            
+            <div class="info-cards">
+                <div class="info-card">
+                    <div class="info-card-icon">📅</div>
+                    <p><strong>August 13</strong><br><small>2025</small></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">⏰</div>
+                    <p><strong>10:00 AM</strong><br><small>to 5:00 PM</small></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">📍</div>
+                    <p><strong>N-Block</strong><br><small>2nd Floor</small></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon">👥</div>
+                    <p><strong>Max 4</strong><br><small>Members/Team</small></p>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <a href="#registration" class="btn-primary">Register Your Team</a>
+                <a href="#overview" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="gradient-text">Competition</span> Overview</h2>
+            <p class="section-description">A multi-level innovation challenge designed to harness the creative and technical potential of students through meaningful impact.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Level 1: IDEATHON 1</h3>
+                    <p class="card-description">Green India – Sustainability Through Software & Tech</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Level 2: IDEATHON 2</h3>
+                    <p class="card-description">Theme: To be announced soon</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">Level 3: Hackathon</h3>
+                    <p class="card-description">Top 20 teams (10 from each Ideathon) build working prototypes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">Event <span class="gradient-text">Timeline</span></h2>
+            <p class="section-description">Your journey from idea to innovation – every step mapped out for success</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">💡</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 4</div>
+                        <h3 class="timeline-title">Event Launch</h3>
+                        <p>Posters released, outreach begins, registrations open</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">📝</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 5-6</div>
+                        <h3 class="timeline-title">Registrations & Abstract Submissions</h3>
+                        <p>Teams submit ideas via form</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">🔍</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 7</div>
+                        <h3 class="timeline-title">Screening Day</h3>
+                        <p>Internal panel evaluates all submitted abstracts</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">✅</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 8</div>
+                        <h3 class="timeline-title">Shortlist Announcement</h3>
+                        <p>Selected teams are informed</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">👥</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 9-11</div>
+                        <h3 class="timeline-title">Mentorship Sessions</h3>
+                        <p>Experts guide teams to refine their pitches</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎯</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 12</div>
+                        <h3 class="timeline-title">Final Setup</h3>
+                        <p>Confirm teams, finalize venue, logistics, presentation slides</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">🏆</div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">Aug 13</div>
+                        <h3 class="timeline-title">Grand Finale (Ideathon 1)</h3>
+                        <p>Live pitching, jury evaluation, prizes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas Section -->
+    <section id="focus-areas" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="gradient-text">Focus</span> Areas</h2>
+            <p class="section-description">Choose your domain and create innovative solutions that contribute to a sustainable, green India</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🌿</div>
+                    <h3 class="card-title">Carbon Emission Tracking</h3>
+                    <p class="card-description">Develop smart solutions to monitor, track, and reduce carbon footprints across industries and communities.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3 class="card-title">AI/IoT for Air Quality & Pollution Control</h3>
+                    <p class="card-description">Leverage artificial intelligence and IoT devices to combat air pollution and improve environmental health.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🗑️</div>
+                    <h3 class="card-title">Smart Waste Management Systems</h3>
+                    <p class="card-description">Create intelligent systems for efficient waste collection, sorting, and recycling processes.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">☀️</div>
+                    <h3 class="card-title">Renewable Energy Monitoring Apps</h3>
+                    <p class="card-description">Build applications to optimize and monitor renewable energy generation and consumption.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🏙️</div>
+                    <h3 class="card-title">Eco-Friendly Smart Systems</h3>
+                    <p class="card-description">Design sustainable smart city solutions that promote environmental conservation and efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rewards Section -->
+    <section id="rewards" class="section" style="background: #f9fafb;">
+        <div class="container">
+            <h2 class="section-title">Rewards & <span class="gradient-text">Recognition</span></h2>
+            <p class="section-description">Your innovation deserves recognition. Explore the exciting rewards and opportunities waiting for you.</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🏆</div>
+                    <h3 class="card-title">Top 3 Teams</h3>
+                    <p class="card-description">Special gifts & certificates, University-wide recognition, Mentorship opportunities</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🥇</div>
+                    <h3 class="card-title">Top 10 Teams</h3>
+                    <p class="card-description">Advance to Final Hackathon, Exclusive mentorship sessions, Priority consideration for incubation</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">All Participants</h3>
+                    <p class="card-description">Certificate of Participation, Innovation exposure, Networking opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="section">
+        <div class="container">
+            <h2 class="section-title"><span class="gradient-text">Registration</span></h2>
+            <p class="section-description">Ready to make a difference? Register your team and be part of the innovation revolution!</p>
+            
+            <div class="registration-form">
+                <h3 class="text-center mb-4">Registration Requirements</h3>
+                <ul style="margin-bottom: 2rem; padding-left: 2rem;">
+                    <li>Maximum team size: 4 members</li>
+                    <li>Submission format: Abstract + Problem Statement + Solution Overview</li>
+                    <li>Mode of Ideathon: Offline Presentation on Aug 13</li>
+                    <li>Mentor support: Available from Aug 9–11 (attendance mandatory for finalists)</li>
+                </ul>
+                
+                <div class="text-center">
+                    <a href="#" class="btn-primary" id="registerBtn">Click Here to Register</a>
+                    <p class="mt-8"><strong>Contact:</strong> Maruthi - 6305453932<br>
+                    <strong>Email:</strong> innovators@vignan.ac.in</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>IDEATHON 2025</h4>
+                    <p>Join us for an innovative journey where your ideas can sow the seeds of a cleaner, greener tomorrow.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#overview">Overview</a>
+                    <a href="#timeline">Timeline</a>
+                    <a href="#focus-areas">Focus Areas</a>
+                    <a href="#rewards">Rewards</a>
+                    <a href="#registration">Registration</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 Maruthi - 6305453932</p>
+                    <p>📧 innovators@vignan.ac.in</p>
+                    <p>📍 N-Block, 2nd Floor, Vignan University</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Event Details</h4>
+                    <p><strong>Date:</strong> August 13, 2025</p>
+                    <p><strong>Time:</strong> 10:00 AM - 5:00 PM</p>
+                    <p><strong>Theme:</strong> Green India</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Innovators Club, CSE Department, Vignan University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Fade in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // Add fade-in class to all cards and timeline items
+    document.querySelectorAll('.card, .timeline-item').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    // Mobile menu toggle functionality
+    function toggleMobileMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        
+        mobileNav.classList.toggle('active');
+        mobileBtn.classList.toggle('active');
+    }
+
+    function closeMobileMenu() {
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        
+        mobileNav.classList.remove('active');
+        mobileBtn.classList.remove('active');
+    }
+
+    // Registration button functionality
+    document.getElementById('registerBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const registrationURL = 'https://docs.google.com/forms/d/e/1FAIpQLSelB39L42bGMzkOkGIYJTG1s_AVJkaghC_rLBssCzTsTAHFsQ/viewform?usp=header';
+        window.open(registrationURL, '_blank');
+    });
+
+    // Header background change on scroll
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+    });
+
+    // Typing effect for main title (optional)
+    function typeEffect() {
+        const title = document.querySelector('.main-title');
+        const text = title.innerHTML;
+        title.innerHTML = '';
+        title.style.borderRight = '2px solid #22c55e';
+        
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                title.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 100);
+            } else {
+                title.style.borderRight = 'none';
+            }
+        }
+
+        // Uncomment the line below to enable typing effect
+        // type();
+    }
+
+    // Page initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('IDEATHON 2025 website loaded successfully!');
+        // typeEffect(); // Uncomment if typing effect is required
+    });
+</script>
+
+</body>
+</html>
