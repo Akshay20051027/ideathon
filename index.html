@@ -47,13 +47,14 @@
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 5px;
             z-index: 1001;
+            margin-left: 0px;
         }
 
         .logo {
             height: 65px;
-            width: 100px;
+            align-items: center;
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
@@ -77,6 +78,8 @@
             display: flex;
             align-items: center;
             gap: 2rem;
+            margin-bottom: 3;
+            padding-bottom: 2;
         }
 
         .nav-links {
@@ -261,7 +264,7 @@
             background-image: url('src/assets/hero-sustainability.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.1;
+            opacity: 0.2;
             z-index: 1;
         }
 
@@ -572,8 +575,10 @@
             }
 
             .logo {
-                height: 35px;
-                width: 35px;
+                height: auto;
+                width: fit-content;
+                margin-left: 5px;
+
             }
         }
 
@@ -621,20 +626,29 @@
             .subtitle {
                 font-size: 1.25rem;
             }
-
-            .info-cards {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.75rem;
-            }
-
-            .info-card {
-                padding: 1rem;
-            }
-
-            .container {
-                padding: 0 1rem;
-            }
         }
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 0.75rem;
+    justify-items: center; /* center items inside each cell */
+}
+
+.info-card {
+    width: 100%;
+    max-width: 250px; /* controls card width */
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Manually place 4th and 5th cards in columns 2 and 3 */
+.info-card:nth-child(4) {
+    grid-column: 2;
+}
+
+
+
 
         /* Registration Form */
         .registration-form {
@@ -698,10 +712,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="logo-section">
-                <img src="src/assets/young-innovators-logo.png" alt="Young Innovators Club" class="logo">
-                <img src="src/assets/vignan-university-logo.png" alt="Vignan University" class="logo">
-                <img src="src/assets/vignan-incubator-logo.png" alt="Vignan Incubator" class="logo">
+            <div class="logo-section" style="margin-left: 0%;">
+                <img src="src/assets/young-innovators-logo.png" alt="Young Innovators Club" class="logo" width="auto">
+                <img src="src/assets/vignan-university-logo.png" alt="Vignan University" class="logo"width="auto">
+                <img src="src/assets/vignan-incubator-logo.png" alt="Vignan Incubator" class="logo" width="auto">
                 <span class="brand-text">IDEATHON 2025</span>
             </div>
             
@@ -744,10 +758,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <div class="event-badge">
-                <div class="pulse-dot"></div>
-                <span>CSE Department • Vignan's University</span>
-            </div>
+       
             
             <h1 class="main-title">
                 <span class="gradient-text">IDEATHON</span><br>
@@ -772,8 +783,9 @@
                 </div>
                 <div class="info-card">
                     <div class="info-card-icon">👥</div>
-                    <p><strong>Max 4</strong><br><small>Members/Team</small></p>
+                    <p><strong>Max 4/solo</strong><br><small>Members/Team</small></p>
                 </div>
+            
             </div>
             
             <div class="hero-buttons">
@@ -967,7 +979,8 @@
                 
                 <div class="text-center">
                     <a href="#" class="btn-primary" id="registerBtn">Click Here to Register</a>
-                    <p class="mt-8"><strong>Contact:</strong> Maruthi - 6305453932<br>
+                    <p class="mt-8"><strong>Contact:</strong> Vijaya  - 6305453932<br>
+                     <strong>Contact:</strong> Akshay guptha  - 6304581226<br>   
                     <strong>Email:</strong> innovators@vignan.ac.in</p>
                 </div>
             </div>
@@ -1068,7 +1081,7 @@
     // Registration button functionality
     document.getElementById('registerBtn').addEventListener('click', function(e) {
         e.preventDefault();
-        const registrationURL = 'https://docs.google.com/forms/d/e/1FAIpQLSelB39L42bGMzkOkGIYJTG1s_AVJkaghC_rLBssCzTsTAHFsQ/viewform?usp=header';
+        const registrationURL = 'https://forms.gle/PLP5EQCJLXm3wuBp6';
         window.open(registrationURL, '_blank');
     });
 
