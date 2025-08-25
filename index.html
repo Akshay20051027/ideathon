@@ -708,12 +708,107 @@
         .mb-4 { margin-bottom: 1rem; }
         .mb-8 { margin-bottom: 2rem; }
         .mt-8 { margin-top: 2rem; }
+        /* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title */
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Info Cards Grid */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive */
+    gap: 1.5rem;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+/* Individual Card */
+.info-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Icons */
+.info-card i {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 12px;
+}
+
+/* Card Heading */
+.info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Card Text */
+.info-card p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.6rem;
+    }
+    .info-card {
+        max-width: 100%;
+    }
+    .info-card i {
+        font-size: 2rem; /* slightly smaller icons */
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 1.4rem;
+    }
+    .info-card {
+        padding: 15px;
+    }
+    .info-card i {
+        font-size: 1.8rem; /* mobile-friendly icons */
+    }
+}
+
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header class="header">
+      <header class="header">
         <div class="header-content">
             <div class="logo-section" style="margin-left: 0%;">
                 <img src="src/assets/young-innovators-logo.png" alt="Young Innovators Club" class="logo" width="auto">
@@ -728,7 +823,6 @@
                         <li><a href="#themes">Themes</a></li>
                         <li><a href="#rules">Rules</a></li>
                         <li><a href="#coordinators">Coordinators</a></li>
-                    
                     </ul>
                 </nav>
                 <a href="#registration" class="cta-button">Register Now</a>
@@ -749,7 +843,6 @@
                 <li><a href="#themes" onclick="closeMobileMenu()">Themes</a></li>
                 <li><a href="#rules" onclick="closeMobileMenu()">Rules</a></li>
                 <li><a href="#coordinators" onclick="closeMobileMenu()">Coordinators</a></li>
-              
             </ul>
             <div class="mobile-cta">
                 <a href="#registration" class="cta-button" onclick="closeMobileMenu()">Register Now</a>
@@ -765,8 +858,11 @@
                 <span class="gradient-text">2025</span>
             </h1>
             
-            <p class="subtitle">PowerPoint Presentation Competition</p>
-            <p class="description">Unleash your creativity and innovation to design impactful ideas for a better tomorrow!</p>
+            <p class="subtitle">A Symphony of Ideas, A Canvas of Possibilities</p>
+            <p class="description">
+                Step into a world where imagination meets innovation — where every spark of thought can grow into a vision for tomorrow. 
+                <br>Join us in this grand celebration of creativity, collaboration, and courage.
+            </p>
             
             <div class="info-cards">
                 <div class="info-card">
@@ -779,17 +875,17 @@
                 </div>
                 <div class="info-card">
                     <div class="info-card-icon">📍</div>
-                    <p><strong>Venue</strong><br><small>Will be updated soon</small></p>
+                    <p><strong>Venue</strong><br><small>To Be Announced Soon</small></p>
                 </div>
                 <div class="info-card">
                     <div class="info-card-icon">👥</div>
-                    <p><strong>Max 3/solo</strong><br><small>Members/Team</small></p>
+                    <p><strong>Up to 3</strong><br><small>Or Solo Participation</small></p>
                 </div>
             </div>
             
             <div class="hero-buttons">
                 <a href="#registration" class="btn-primary">Register Your Team</a>
-                <a href="#overview" class="btn-secondary">Learn More</a>
+                <a href="#overview" class="btn-secondary">Discover More</a>
             </div>
         </div>
     </section>
@@ -798,8 +894,12 @@
     <section id="overview" class="section">
         <div class="container">
             <h2 class="section-title"><span class="gradient-text">Competition</span> Overview</h2>
-            <p class="section-description">IDEATHON 2025 is a PowerPoint presentation competition for all UG and PG students. 
-                <span style="font-weight: bold; color:#007bff;">Organised by CSE Department</span>.
+            <p class="section-description">
+                <strong>IDEATHON 2025</strong> is more than just a competition — it is a stage where dreams take shape and ideas find their wings. 
+                Open to all <strong>UG and PG students</strong>, this PowerPoint presentation contest invites minds to paint the future with originality, 
+                intellect, and passion.  
+                <br><br>
+                <span style="font-weight: bold; color:#007bff;">Organised with pride by the CSE Department</span>, this event is a celebration of youthful innovation and transformative thought.
             </p>
         </div>
     </section>
@@ -808,18 +908,26 @@
     <section id="themes" class="section">
         <div class="container">
             <h2 class="section-title"><span class="gradient-text">Themes</span></h2>
-            <p class="section-description">Participants can present their innovative ideas under the following themes:</p>
+            <p class="section-description">
+                Each idea is a seed. Plant yours in the soil of innovation under these guiding themes:
+            </p>
             
             <div class="cards-grid">
                 <div class="card">
                     <div class="card-icon">🌱</div>
                     <h3 class="card-title">Sustainability with Mobile App Development</h3>
-                    <p class="card-description">Innovative apps that drive sustainable practices and environmental conservation.</p>
+                    <p class="card-description">
+                        Harness technology to nurture our planet — from eco-friendly innovations to 
+                        digital tools that empower conservation and sustainable living.
+                    </p>
                 </div>
                 <div class="card">
                     <div class="card-icon">⚡</div>
                     <h3 class="card-title">Open Theme</h3>
-                    <p class="card-description">If you are capable enough, showcase your creativity in any impactful domain.</p>
+                    <p class="card-description">
+                        Break the boundaries, redefine the norms, and let your creativity flow freely. 
+                        No walls, no limits — your vision, your impact, your story.
+                    </p>
                 </div>
             </div>
         </div>
@@ -830,10 +938,10 @@
         <div class="container">
             <h2 class="section-title">Eligibility & <span class="gradient-text">Rules</span></h2>
             <ul class="section-description" style="padding-left: 2rem; line-height: 1.8;">
-                <li>Open for all UG/PG students.</li>
-                <li>Team size: Individual or Maximum 3 members.</li>
-                <li>Mode of presentation: PowerPoint (Offline).</li>
-                <li>Last date for registration: <strong>04/09/2025</strong>.</li>
+                <li>Open to all undergraduate and postgraduate students.</li>
+                <li>Team size: Brave it alone, or unite in a team of up to three.</li>
+                <li>Mode of presentation: <strong>PowerPoint</strong>, presented live, offline.</li>
+                <li>Registration closes on: <strong>04/09/2025</strong>.</li>
             </ul>
         </div>
     </section>
@@ -847,18 +955,20 @@
                 <div class="card">
                     <h3 class="card-title">Faculty Coordinators</h3>
                     <p class="card-description">
-                        Jani Shaik – 8247840320<br>
-                        Dayanika – 7013447336
+                        Guiding Lights of Knowledge:<br>
+                        <strong>Jani Shaik</strong> – 8247840320<br>
+                        <strong>Dayanika</strong> – 7013447336
                     </p>
                 </div>
                 
                 <div class="card">
                     <h3 class="card-title">Student Coordinators</h3>
                     <p class="card-description">
-                        Vijayamaruthi – 6305453932<br>
-                        Nomini – 720212191<br>
-                        Akshay Guptha – 630451226<br>
-                        Sarojininaidu – 6281168530
+                        The Pillars of Organization:<br>
+                        <strong>Vijayamaruthi</strong> – 6305453932<br>
+                        <strong>Nomini</strong> – 720212191<br>
+                        <strong>Akshay Guptha</strong> – 630451226<br>
+                        <strong>Sarojininaidu</strong> – 6281168530
                     </p>
                 </div>
             </div>
@@ -869,7 +979,10 @@
     <section id="registration" class="section">
         <div class="container">
             <h2 class="section-title"><span class="gradient-text">Registration</span></h2>
-            <p class="section-description">Register before <strong>September 04, 2025</strong> to confirm your participation.</p>
+            <p class="section-description">
+                Secure your place in this journey of brilliance!  
+                <br>Register before <strong>September 04, 2025</strong> and be part of a movement that dares to dream beyond the ordinary.
+            </p>
             
             <div style="text-align: center;">
                 <a href="#" id="registerBtn" 
@@ -887,8 +1000,9 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>IDEATHON 2025</h4>
-                    <p>PowerPoint Presentation competition 
-                        <span style="font-weight:bold; color:#007bff;">Organised by CSE Department</span>.
+                    <p>
+                        A PowerPoint presentation competition where imagination becomes legacy.  
+                        <span style="font-weight:bold; color:#007bff;">Organised with pride by the CSE Department.</span>
                     </p>
                 </div>
                 
@@ -905,7 +1019,7 @@
                     <h4>Event Details</h4>
                     <p><strong>Date:</strong> September 09, 2025</p>
                     <p><strong>Time:</strong> 10:00 AM onwards</p>
-                    <p><strong>Venue:</strong> To be updated soon</p>
+                    <p><strong>Venue:</strong> To Be Announced Soon</p>
                 </div>
             </div>
             
@@ -931,7 +1045,7 @@
     // Registration button functionality
     document.getElementById('registerBtn').addEventListener('click', function(e) {
         e.preventDefault();
-        const registrationURL = 'https://forms.gle/PLP5EQCJLXm3wuBp6'; // Replace with actual
+        const registrationURL = 'https://forms.gle/pv8FDT4xKVx9CpiCA'; // Replace with actual
         window.open(registrationURL, '_blank');
     });
 </script>
